@@ -1,18 +1,32 @@
-# Quickstart
+# Quickstart Guide
 
-Prereqs:
-- Python >= 3.11
-- SageMath >= 10.0 (importable in Python)
+## Prerequisites
+- Python >= 3.9
+- SageMath >= 10.0 (importable in Python) - **optional**
 
-Install:
+## Installation
 ```bash
-pip install -e .
+pip install lie-algebra-cohomology-toolkit
 ```
 
-Run with structure constants (sl2):
+## Basic Usage
+
+### Run with structure constants (sl2):
 ```bash
-spectral-lie run -c configs/default.yaml -v
+lie-cohomology run -c configs/default.yaml -v
 ```
 
-Results:
-- outputs/results.json with cohomology summary and per-degree spectra.
+### Validate configuration:
+```bash
+lie-cohomology validate-config -c configs/default.yaml
+```
+
+### Inspect differentials:
+```bash
+lie-cohomology inspect-d -c configs/default.yaml -d 2
+```
+
+## Results
+- `outputs/results.json` with cohomology summary and per-degree spectra
+- Detailed differential matrices and spectral analysis
+- Configuration validation and error reporting

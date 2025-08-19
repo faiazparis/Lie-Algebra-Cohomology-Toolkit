@@ -1,0 +1,9 @@
+{
+  "basis": ["J1", "J2", "J3"],
+  "structure_constants": [
+    [["J1", "J2"], {"J3": 1}],
+    [["J2", "J3"], {"J1": 1}],
+    [["J3", "J1"], {"J2": 1}]
+  ],
+  "meta": {"description": "so(3) - rotation algebra in 3D"}
+}

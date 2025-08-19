@@ -30,7 +30,7 @@ A powerful toolkit that computes Chevalley–Eilenberg cohomology, analyzes spec
 
 ## 🚀 **Core Capabilities**
 
-- **✅ Chevalley-Eilenberg Cohomology**: Compute Betti numbers with any coefficients
+- **✅ Chevalley-Eilenberg Cohomology**: Compute Betti numbers with trivial coefficients
 - **✅ Spectral Analysis**: Hodge Laplacian eigenvalues and harmonic forms
 - **✅ Algebraic Validation**: Verify d²=0 and other identities numerically
 - **✅ Flexible Input**: JSON structure constants or SageMath Cartan types
@@ -90,16 +90,16 @@ lie-cohomology validate-config -c configs/default.yaml
 # Inspect differentials at specific degree
 lie-cohomology inspect-d -c configs/default.yaml -d 2
 
-# Get detailed spectral analysis
-lie-cohomology spectral -c configs/default.yaml
+# Get detailed spectral analysis (built into run command)
+lie-cohomology run -c configs/default.yaml
 ```
 
 ## 🌟 **Why This Toolkit?**
 
 ### **Mathematical Rigor**
-- **Exact Implementation**: Precise CE differential computation
-- **SVD-Based**: Reliable rank estimation for numerical stability
-- **Policy-Driven**: Transparent mathematical choices
+- **Exact Implementation**: Precise CE differential computation following standard theory
+- **SVD-Based**: Rank estimation with numerical tolerance (needs comprehensive testing)
+- **Policy-Driven**: Transparent mathematical choices and limitations
 
 ### **Real-World Ready**
 - **No Dependencies**: Works out-of-the-box with Python standard library
@@ -107,9 +107,28 @@ lie-cohomology spectral -c configs/default.yaml
 - **Configurable**: Adapt to your specific computational needs
 
 ### **Research-Grade**
-- **Comprehensive Testing**: Extensive test suite for reliability
+- **Mathematical Foundation**: Implements standard Chevalley-Eilenberg theory correctly
 - **Documentation**: Clear mathematical foundations and examples
 - **Open Source**: Community-driven development
+
+## ⚠️ **Current Status & Transparency**
+
+### **What's Ready**
+✅ **Mathematical Correctness**: All algorithms implement standard Lie algebra cohomology theory
+✅ **Core Functionality**: Chevalley-Eilenberg differentials, Hodge Laplacian, spectral analysis
+✅ **Documentation**: Comprehensive guides with honest limitations
+✅ **Code Quality**: Clean, modular architecture
+
+### **What Needs Verification**
+⚠️ **Numerical Stability**: SVD-based methods need comprehensive testing
+⚠️ **Edge Cases**: Behavior with degenerate algebras and large dimensions
+⚠️ **Performance**: Actual runtime characteristics vs. theoretical expectations
+⚠️ **SageMath Integration**: Experimental feature, JSON input is reliable fallback
+
+### **Recommendation for Users**
+- **For Research**: Ready to use with proper testing on your specific problems
+- **For Production**: Test thoroughly with your use cases before deployment
+- **For Learning**: Excellent mathematical foundation with clear examples
 
 ## 🔬 **Advanced Applications**
 
@@ -127,8 +146,8 @@ print(f"Central extensions: {betti_numbers[2]}")
 ```python
 # Study SE(3) for robot end-effector stability
 engine = CohomologyEngine.from_json("se3_structure.json")
-spectrum = engine.spectral_analysis()
-print(f"Stability modes: {len(spectrum.harmonic_forms)}")
+# Note: spectral analysis is available through the full model
+# Use: lie-cohomology run -c configs/examples/se3_structure.json
 ```
 
 ### **Mathematical Research**
@@ -156,13 +175,34 @@ print(f"E8 cohomology ring structure: {cohomology}")
 **We're building advanced mathematical tools for everyone.**
 
 **Join us in:**
+- 🧪 **Testing & Validation**: Run tests, report bugs, validate edge cases
 - 🔬 **Improving algorithms**: Better numerical methods, mathematical rigor
 - 📚 **Enhancing docs**: Clearer explanations, more examples
 - 🐛 **Fixing bugs**: Making the toolkit more reliable
 - ✨ **Adding features**: New Lie algebra types, spectral methods
-- 🧪 **Expanding tests**: More validation scenarios
+- 📊 **Performance**: Benchmark and optimize for real-world use cases
 
 **All skill levels welcome!** Check our [issue templates](.github/ISSUE_TEMPLATE/) and submit Pull Requests.
+
+## 🧪 **Testing & Improvement Guide**
+
+### **For Contributors**
+1. **Run Tests**: `python -m pytest tests/ -v` (requires dependencies)
+2. **Test Edge Cases**: Try nilpotent algebras, large dimensions, degenerate metrics
+3. **Performance Testing**: Benchmark with various algebra sizes
+4. **Documentation Validation**: Ensure all examples work as written
+
+### **For Users**
+1. **Start Simple**: Test with sl2(C) and so(3) examples first
+2. **Validate Results**: Compare with known mathematical results
+3. **Report Issues**: Document any numerical instabilities or unexpected behavior
+4. **Share Use Cases**: Help identify edge cases and performance bottlenecks
+
+### **Current Testing Status**
+- ✅ **Unit Tests**: Basic functionality covered
+- ⚠️ **Integration Tests**: Need more comprehensive coverage
+- ⚠️ **Performance Tests**: Not yet implemented
+- ⚠️ **Edge Case Tests**: Limited coverage of degenerate cases
 
 ---
 

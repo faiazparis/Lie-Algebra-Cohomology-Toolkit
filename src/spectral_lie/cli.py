@@ -12,7 +12,7 @@ from .model import SpectralLieModel
 
 @click.group()
 def main():
-    """Lie Algebra Cohomology Toolkit CLI"""
+    """Lie Algebra Cohomology Toolkit - Compute CE cohomology and spectral analysis"""
     pass
 
 @main.command()
@@ -22,7 +22,7 @@ def run(config: str, verbose: bool):
     """
     Run Lie algebra cohomology and spectral analysis.
     
-    INPUT PATHS:
+    INPUT FORMATS:
     - JSON structure constants: Always reliable, recommended for production
     - SageMath Cartan types: Experimental, requires SageMath installation
     
@@ -57,13 +57,15 @@ def run(config: str, verbose: bool):
         raise click.Abort()
 
 @main.command()
-@click.option("--config", "-c", type=str, required=True)
+@click.option("--config", "-c", type=str, required=True, help="Path to YAML config")
 def validate_config(config: str):
+    """Validate configuration file"""
     _ = load_config(config)
     click.echo("✅ Config is valid")
 
 @main.command()
 def list_algebras():
+    """List supported Lie algebra families"""
     click.echo("Supported families (Cartan types): A_n, B_n, C_n, D_n, E6, E7, E8, F4, G2")
 
 
