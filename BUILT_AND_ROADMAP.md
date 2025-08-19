@@ -98,7 +98,7 @@ This document showcases what we've built, the real problems we solve, and our ro
 - **Type Safety**: JSON export crashes → Solved with recursive type conversion
 - **Performance**: Exterior power growth → Addressed with efficient algorithms
 
-## 🗺️ **Roadmap: What's Next**
+## 🗺️ **Future Development Ideas & Roadmap**
 
 ### **Short Term (3-6 months)**
 - **Nontrivial Coefficients**: Support for arbitrary coefficient modules
