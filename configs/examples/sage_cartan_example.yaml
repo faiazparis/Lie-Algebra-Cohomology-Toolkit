@@ -1,0 +1,35 @@
+# Example configuration for using SageMath with Cartan types
+# This requires SageMath to be installed and available
+
+input:
+  format: cartan_type                    # Use SageMath Cartan type
+  cartan_type: "A1"                      # sl2(C) - classical Lie algebra
+  validate_jacobi: true
+
+cohomology:
+  max_degree: 5
+  trivial_coefficients: true
+  compute_betti: true
+  sparse_matrices: true
+  policy: "CE"                           # Standard Chevalley-Eilenberg
+
+spectral:
+  compute_eigenvalues: true
+  compute_eigenvectors: false
+  laplacian_type: hodge
+  precision: 53
+
+physics:
+  analyze_symmetries: true
+  gauge_theory_invariants: false
+  export_characteristic_classes: false
+
+output:
+  directory: "./outputs/sage_example"
+  save_matrices: true
+  save_spectrum: true
+  save_cohomology: true
+  export_sage_objects: true              # Export SageMath objects if available
+  format: json
+
+seed: 42

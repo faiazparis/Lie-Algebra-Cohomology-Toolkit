@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=70.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lie-algebra-cohomology-toolkit"
+version = "1.0.0"
+description = "Lie Algebra Cohomology Toolkit: Mathematical toolkit for CE cohomology and spectral analysis"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "numpy>=1.21",
+  "scipy>=1.7",
+  "pyyaml>=6.0",
+  "click>=8.0"
+]
+
+[project.scripts]
+lie-cohomology = "spectral_lie.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

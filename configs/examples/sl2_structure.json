@@ -1,0 +1,9 @@
+{
+  "basis": ["H", "E", "F"],
+  "structure_constants": [
+    [["H", "E"], {"E": 2}],
+    [["H", "F"], {"F": -2}],
+    [["E", "F"], {"H": 1}]
+  ],
+  "meta": {"description": "sl2(C) standard basis"}
+}

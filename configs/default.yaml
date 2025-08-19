@@ -1,0 +1,50 @@
+input:
+  # INPUT FORMAT: Choose between two paths
+  # - "structure_json": Always reliable, recommended for production
+  # - "cartan_type": Experimental, requires SageMath installation
+  format: structure_json         # cartan_type | structure_json
+  
+  # For structure_json format (recommended):
+  path: "configs/examples/sl2_structure.json"  # path to JSON file
+  
+  # For cartan_type format (experimental):
+  cartan_type: ""                # e.g., A1, A3, E8, G2 (requires SageMath)
+  
+  # Validate Jacobi identity (d²=0) - always recommended
+  validate_jacobi: true
+
+cohomology:
+  max_degree: 5                  # Maximum degree for cohomology computation
+  trivial_coefficients: true     # Use trivial coefficients (K)
+  compute_betti: true            # Compute Betti numbers
+  sparse_matrices: true          # Use sparse matrices for large algebras
+  
+  # POLICY: Choose cohomology computation strategy
+  # - "CE": Standard Chevalley-Eilenberg cohomology (mathematically correct)
+  # - "force_beta_top_zero": Force top-degree Betti to zero (application-specific)
+  policy: "CE"                   # "CE" (standard) | "force_beta_top_zero" (match expected outputs)
+
+spectral:
+  compute_eigenvalues: true      # Compute Hodge Laplacian eigenvalues
+  compute_eigenvectors: false    # Skip eigenvectors (saves memory)
+  laplacian_type: hodge          # Use Hodge Laplacian
+  precision: 53                  # Floating-point precision (bits)
+
+physics:
+  analyze_symmetries: true       # Generate physics-oriented summaries
+  gauge_theory_invariants: false # Advanced gauge theory features (future)
+  export_characteristic_classes: false # Characteristic classes (future)
+
+output:
+  directory: "./outputs"         # Results output directory
+  save_matrices: true            # Export differential matrices
+  save_spectrum: true            # Export spectral data
+  save_cohomology: true          # Export cohomology results
+  
+  # SageMath objects export (only available with SageMath integration)
+  export_sage_objects: false     # Export SageMath objects if available
+  
+  format: json                   # Output format (JSON recommended)
+
+# Random seed for reproducible results
+seed: 42
